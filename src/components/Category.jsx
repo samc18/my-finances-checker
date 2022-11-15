@@ -2,6 +2,11 @@ import LineItem from './LineItem'
 import Analysis from './Analysis'
 
 function Category({ title, incomes, items, displayResults, removeFromBudget, updateModalState }) {
+
+    items.sort((a, b) => {
+        return b.amount - a.amount
+    })
+
     const listItems = items.map((item, index) => {
         return <LineItem key={index} item={item} removeFromBudget={removeFromBudget} />
     })
