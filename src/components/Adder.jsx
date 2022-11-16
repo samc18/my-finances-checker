@@ -19,7 +19,7 @@ function Adder({ title, updateBudget, resetResults, updateModalState }) {
         <div className='adder'>
             <div className='adder__title'>
                 <p className='adder__title-name'>Add Incomes or Expenses</p>
-                <i class="fa-solid fa-circle-info" onClick={() => updateModalState(title)}></i>
+                <i className="fa-solid fa-circle-info" onClick={() => updateModalState(title)}></i>
             </div>
             <form className='adder__form' onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor='name' className='adder__name-label'>Name</label>
@@ -27,7 +27,7 @@ function Adder({ title, updateBudget, resetResults, updateModalState }) {
                     type='text'
                     className='adder__name-input'
                     id='name'
-                    placeholder='Name of amount'
+                    placeholder='Housing'
                     {...register('name', {
                         required: 'A name for the amount is required.',
                         pattern: {
@@ -42,7 +42,7 @@ function Adder({ title, updateBudget, resetResults, updateModalState }) {
                     type='text'
                     className='adder__amount-input'
                     id='amount'
-                    placeholder='Amount in $'
+                    placeholder='$1500'
                     {...register('amount', {
                         required: 'An amount is required.',
                         pattern: {

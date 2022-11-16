@@ -1,10 +1,12 @@
-function Analysis({ title, incomes, items, displayResults }) {
-    if (!displayResults) return null
+import { getPercentage, getMaxAmount, getTotalCategory, getDiffAmounts } from '../utils/Calculations'
+
+function Analysis({ title, budget, displayResults }) {
+    if (!displayResults || title === 'incomes') return null
     
-    const percentage = title === 'Needs' ? 0.5 : title === 'Wants' ? 0.3 : 0.2
-    const maxAmount = incomes.reduce((prev, current) => prev + Number(current.amount), 0) * percentage
-    const totalItems = items.reduce((prev, current) => prev + Number(current.amount), 0)
-    const diffAmounts = maxAmount - totalItems
+    const percentage = getPercentage(title)
+    const maxAmount = getMaxAmount(budget.incomes, percentage)
+    const totalItems = getTotalCategory(budget[title])
+    const diffAmounts = getDiffAmounts(maxAmount, totalItems)
 
     return (
         <div className='analysis'>
